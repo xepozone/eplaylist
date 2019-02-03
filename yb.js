@@ -1,4 +1,9 @@
+// JavaScript Document. EXPERIMENT
+
+//https://www.youtube.com/player_api
 if(!window.YT)var YT={loading:0,loaded:0};if(!window.YTConfig)var YTConfig={host:baseURL};YT.loading||(YT.loading=1,function(){var o=[];YT.ready=function(n){YT.loaded?n():o.push(n)},window.onYTReady=function(){YT.loaded=1;for(var n=0;n<o.length;n++)try{o[n]()}catch(i){}},YT.setConfig=function(o){for(var n in o)o.hasOwnProperty(n)&&(YTConfig[n]=o[n])}}());
+
+//https://s.ytimg.com/yts/jsbin/www-widgetapi-vfluxKqfs/www-widgetapi.js (MODIFIED) - ELIMINATED ATTR allowfullscreen, title like "YouTube video player"
 (function(){var g,k=this;function l(a){return"string"==typeof a}
 function m(a){a=a.split(".");for(var b=k,c=0;c<a.length;c++)if(b=b[a[c]],null==b)return null;return b}
 function aa(){}
@@ -119,7 +124,13 @@ c.src=V(a.b,"host")+a.w()+"?"+Qa(v);return c}
 g.G=function(){this.a&&this.a.contentWindow?this.C({event:"listening"}):window.clearInterval(this.c)};
 function kb(a){ib(a.b,a,a.g);a.c=ab(u(a.G,a));$a(a.a,"load",u(function(){window.clearInterval(this.c);this.c=ab(u(this.G,this))},a))}
 function mb(a,b){a.o[b]||(a.o[b]=!0,X(a,"addEventListener",[b]))}
-g.C=function(a){a.id=this.g;a.channel="widget";a=Ga(a);var b=this.b;var c=Oa(this.a.src);b=0==c.indexOf("https:")?[c]:b.a?[c.replace("http:","https:")]:b.c?[c]:[c,c.replace("http:","https:")];if(!this.a.contentWindow)throw Error("The YouTube player is not attached to the DOM.");for(c=0;c<b.length;c++)try{}catch(d){if(d.name&&"SyntaxError"==d.name)Ua(d,"WARNING");else throw d;}};Ka(new La);Ka(new Ma);function nb(a){return(0==a.search("cue")||0==a.search("load"))&&"loadModule"!=a}
+g.C=function(a){a.id=this.g;a.channel="widget";a=Ga(a);var b=this.b;var c=Oa(this.a.src);b=0==c.indexOf("https:")?[c]:b.a?[c.replace("http:","https:")]:b.c?[c]:[c,c.replace("http:","https:")];if(!this.a.contentWindow)throw Error("The YouTube player is not attached to the DOM.");for(c=0;c<b.length;c++)try{
+	//skip first post message for SHUT UP : Failed to execute 'postMessage' on 'DOMWindow': The target origin provided ('https://www.youtube.com') does not match the recipient window's origin
+	if(this._skiped){
+		this.a.contentWindow.postMessage(a,b[c]); 
+	}
+this._skiped = true;
+}catch(d){if(d.name&&"SyntaxError"==d.name)Ua(d,"WARNING");else throw d;}};Ka(new La);Ka(new Ma);function nb(a){return(0==a.search("cue")||0==a.search("load"))&&"loadModule"!=a}
 function ob(a){return 0==a.search("get")||0==a.search("is")}
 ;function Y(a,b){if(!a)throw Error("YouTube player element ID required.");var c={/*title:"video player",*/videoId:"",width:640,height:360};b&&da(c,b);W.call(this,a,c,"player");this.i={};this.j={}}
 x(Y,W);function pb(a){if("iframe"!=a.tagName.toLowerCase()){var b=T(a,"videoid");b&&(b={videoId:b,width:T(a,"width"),height:T(a,"height")},new Y(a,b))}}
