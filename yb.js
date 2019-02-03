@@ -125,12 +125,9 @@ g.G=function(){this.a&&this.a.contentWindow?this.C({event:"listening"}):window.c
 function kb(a){ib(a.b,a,a.g);a.c=ab(u(a.G,a));$a(a.a,"load",u(function(){window.clearInterval(this.c);this.c=ab(u(this.G,this))},a))}
 function mb(a,b){a.o[b]||(a.o[b]=!0,X(a,"addEventListener",[b]))}
 g.C=function(a){a.id=this.g;a.channel="widget";a=Ga(a);var b=this.b;var c=Oa(this.a.src);b=0==c.indexOf("https:")?[c]:b.a?[c.replace("http:","https:")]:b.c?[c]:[c,c.replace("http:","https:")];if(!this.a.contentWindow)throw Error("The YouTube player is not attached to the DOM.");for(c=0;c<b.length;c++)try{
-	//skip first post message for SHUT UP : Failed to execute 'postMessage' on 'DOMWindow': The target origin provided ('https://www.youtube.com') does not match the recipient window's origin
-	if(this._skiped){
-		this.a.contentWindow.postMessage(a,b[c]); 
-	} else {
-		this._skiped = true;
-	}
+//skip first post message for SHUT UP : Failed to execute 'postMessage' on 'DOMWindow': The target origin provided ('https://www.youtube.com') does not match the recipient window's origin
+if(this._skiped){this.a.contentWindow.postMessage(a,b[c]); }
+this._skiped = true;
 }catch(d){if(d.name&&"SyntaxError"==d.name)Ua(d,"WARNING");else throw d;}};Ka(new La);Ka(new Ma);function nb(a){return(0==a.search("cue")||0==a.search("load"))&&"loadModule"!=a}
 function ob(a){return 0==a.search("get")||0==a.search("is")}
 ;function Y(a,b){if(!a)throw Error("YouTube player element ID required.");var c={/*title:"video player",*/videoId:"",width:640,height:360};b&&da(c,b);W.call(this,a,c,"player");this.i={};this.j={}}
