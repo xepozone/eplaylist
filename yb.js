@@ -1,7 +1,7 @@
 // JavaScript Document. EXPERIMENT
 
 //https://www.youtube.com/player_api
-if(!window.YT)var YT={loading:0,loaded:0};if(!window.YTConfig)var YTConfig={host:baseURL};YT.loading||(YT.loading=1,function(){var o=[];YT.ready=function(n){YT.loaded?n():o.push(n)},window.onYTReady=function(){YT.loaded=1;for(var n=0;n<o.length;n++)try{o[n]()}catch(i){}},YT.setConfig=function(o){for(var n in o)o.hasOwnProperty(n)&&(YTConfig[n]=o[n])}}());
+if(!window.YT)var YT={loading:0,loaded:0};if(!window.YTConfig)var YTConfig={host:"http://www.youtube.com"};YT.loading||(YT.loading=1,function(){var o=[];YT.ready=function(n){YT.loaded?n():o.push(n)},window.onYTReady=function(){YT.loaded=1;for(var n=0;n<o.length;n++)try{o[n]()}catch(i){}},YT.setConfig=function(o){for(var n in o)o.hasOwnProperty(n)&&(YTConfig[n]=o[n])}}());
 
 //https://s.ytimg.com/yts/jsbin/www-widgetapi-vfluxKqfs/www-widgetapi.js (MODIFIED) - ELIMINATED ATTR allowfullscreen, title like "YouTube video player"
 (function(){var g,k=this;function l(a){return"string"==typeof a}
