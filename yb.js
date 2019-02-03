@@ -1,7 +1,7 @@
 // JavaScript Document. EXPERIMENT
 
 //https://www.youtube.com/player_api
-if(!window.YT)var YT={loading:0,loaded:0};if(!window.YTConfig)var YTConfig={host:"http://www.youtube.com"};YT.loading||(YT.loading=1,function(){var o=[];YT.ready=function(n){YT.loaded?n():o.push(n)},window.onYTReady=function(){YT.loaded=1;for(var n=0;n<o.length;n++)try{o[n]()}catch(i){}},YT.setConfig=function(o){for(var n in o)o.hasOwnProperty(n)&&(YTConfig[n]=o[n])}}());
+if(!window.YT)var YT={loading:0,loaded:0};if(!window.YTConfig)var YTConfig={host:"https://www.youtube.com"};YT.loading||(YT.loading=1,function(){var o=[];YT.ready=function(n){YT.loaded?n():o.push(n)},window.onYTReady=function(){YT.loaded=1;for(var n=0;n<o.length;n++)try{o[n]()}catch(i){}},YT.setConfig=function(o){for(var n in o)o.hasOwnProperty(n)&&(YTConfig[n]=o[n])}}());
 
 //https://s.ytimg.com/yts/jsbin/www-widgetapi-vfluxKqfs/www-widgetapi.js (MODIFIED) - ELIMINATED ATTR allowfullscreen, title like "YouTube video player"
 (function(){var g,k=this;function l(a){return"string"==typeof a}
@@ -127,7 +127,7 @@ function mb(a,b){a.o[b]||(a.o[b]=!0,X(a,"addEventListener",[b]))}
 g.C=function(a){a.id=this.g;a.channel="widget";a=Ga(a);var b=this.b;var c=Oa(this.a.src);b=0==c.indexOf("https:")?[c]:b.a?[c.replace("http:","https:")]:b.c?[c]:[c,c.replace("http:","https:")];if(!this.a.contentWindow)throw Error("The YouTube player is not attached to the DOM.");for(c=0;c<b.length;c++)try{
 	//skip first post message for SHUT UP : Failed to execute 'postMessage' on 'DOMWindow': The target origin provided ('https://www.youtube.com') does not match the recipient window's origin
 	if(this._skiped){
-		this.a.contentWindow.postMessage(a,b[c]); 
+		console.log('');
 	}
 this._skiped = true;
 }catch(d){if(d.name&&"SyntaxError"==d.name)Ua(d,"WARNING");else throw d;}};Ka(new La);Ka(new Ma);function nb(a){return(0==a.search("cue")||0==a.search("load"))&&"loadModule"!=a}
