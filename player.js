@@ -65,23 +65,3 @@ function loadPlayer(me) {
         $('#player_' + index).html(pause_icon)
     }
 };
-function whenVideoReadyToPlay(me, callback) {
-   if (me.pluginType !== 'flash') {
-      me.addEventListener('loadstart', function (e) {
-         callback();
-      }, false);
-
-      return;
-   }
-
-   if (me.attributes.preload === 'none') {
-      $(me.pluginElement).ready(function (e) {
-         callback();
-      });
-   }
-   else {
-      me.addEventListener('canplay', function (e) {
-         callback();
-      }, false);
-   }
-};
