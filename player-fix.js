@@ -1,21 +1,22 @@
 	function loadPlayer(me) {
     //e.preventDefault();
-    var download_link = $('#player_'+me).data('baseid');
+    var me = '#player_'+me;
+    var download_link = $(me).data('baseid');
     $('.tbl_active_download').attr('href', baseURL + 'file?yb_id=' + download_link);
-    var index = $('#player_'+me).data('id');
+    var index = $(me).data('id');
     var url_yb = 'https://www.youtube.com/watch?v=' + playlist[index];
     count = Object.keys(playlist).length - 1;
-    var audio = docu'#player_'+ment.getEle'#player_'+mentById('audio-30133-2');
-    var source = docu'#player_'+ment.getEle'#player_'+mentById('audioSource');
+    var audio = document.getElementById('audio-30133-2');
+    var source = document.getElementById('audioSource');
     if (source.src == url_yb) {
         if (audio.paused) {
             audio.play();
-            $('#player_'+me).html(pause_icon);
-            $('#player_'+me).closest('.cover-yb').css('background-color', 'rgba(0, 0, 0, 0.09)')
+            $(me).html(pause_icon);
+            $(me).closest('.cover-yb').css('background-color', 'rgba(0, 0, 0, 0.09)')
         } else {
             audio.pause();
-            $('#player_'+me).closest('.cover-yb').css('background-color', '#ffffff');
-            $('#player_'+me).html(yb_icon)
+            $(me).closest('.cover-yb').css('background-color', '#ffffff');
+            $(me).html(yb_icon)
         }
     } else {
         source.src = url_yb;
@@ -24,8 +25,8 @@
         audio.play();
         $('.play-yb').html(yb_icon);
         $('.cover-yb').css('background-color', '#ffffff');
-        $('#player_'+me).closest('.cover-yb').css('background-color', 'rgba(0, 0, 0, 0.09)');
-        $('#player_'+me).html(pause_icon)
+        $(me).closest('.cover-yb').css('background-color', 'rgba(0, 0, 0, 0.09)');
+        $(me).html(pause_icon)
     }
     audio.addEventListener('ended', function(e) {
         index++;
